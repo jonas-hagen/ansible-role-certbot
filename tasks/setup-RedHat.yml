@@ -19,3 +19,11 @@
     - ansible_os_family == 'RedHat'
     - ansible_distribution_major_version | int >= 8
     - ansible_distribution == "CentOS"
+
+- name: Install cronie package for Fedora.
+  package:
+    name: cronie
+    state: present
+
+  when:
+    - ansible_distribution == "Fedora"
